@@ -232,20 +232,21 @@
           <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
         </defs>
       </svg>
-      <h1>world</h1>
-      <h1>Hello, {{ title() }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+      <h1>world - Tutorial</h1>
+      <p>de como criar endpoints de um CRUD usando Typescript, NodeJS e express</p>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
       <div class="pill-group">
         @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'Prompt and best practices for AI', link: 'https://angular.dev/ai/develop-with-ai'},
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
+            { title: 'Passo a passo', link: '#' },
+            { title: '1º Passo - Criamos o projeto', link: '#' },
+            { title: '2º Passo - Instalamos o Express e TypeScript via NPM', link: '#' },
+            { title: '3º Passo - Configuramos o servidor via npm', link: '#' },
+            { title: '4º Passo - Criamos as Rotas e Endpoint necessarios usando o router do express', link: '#' },
+            { title: '5º Passo - GET, POST, PUT, DELETE com o, ex de 1: router.get', link: '#' },
+            { title: '6º Passo - Então testamos a API no Postman', link: '#' },
+            { title: 'Clicando aqui, vc tera os exemplos dos endpoints', link: 'https://github.com/Peteru1303/Projeto-API-em-grupo-PDW1/blob/main/src/routes/router.ts' },
         ]; track item.title) {
           <a
             class="pill"
