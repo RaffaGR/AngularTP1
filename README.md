@@ -1,4 +1,4 @@
-# TP1---Angular
+#Angular TP1
 
 A1 > Instalação do angular e inicialização e explicação da inicialização
 Ex 1 e 2: 
