@@ -1,0 +1,44 @@
+.contador {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 6px 10px;
+}
+
+.contador button {
+    border: none;
+    background: #2f9e41;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contador button:hover {
+    opacity: .9;
+}
+
+.contador button:active {
+    animation: scaling 0.2s ease-in-out 1;
+}
+
+.valor {
+    min-width: 24px;
+    text-align: center;
+    font-weight: bold;
+    /* color: black; */
+}
+
+@keyframes scaling {
+    0% {
+        transform: scale(1); 
+    }
+    50% {
+        transform: scale(0.95); 
+    }
+    100% {
+        transform: scale(1); 
+    }
+}
