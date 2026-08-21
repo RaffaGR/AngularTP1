@@ -1,8 +1,11 @@
 <!-- <app-header [titulo]="'obaoba'"></app-header> --> <!-- da assim tbm, mas atenção tem q declarar o signal la dentro do component -->
 <app-header [titulo]="title()" (textoSobre)="receberSobre($event)"></app-header>
 <main class="container">
-  <h2>Angular - Aula 02</h2>
-  <app-quantidade-controle></app-quantidade-controle>
+  <app-lista-produtos></app-lista-produtos>
+  <!-- <h2>Angular - Aula 02</h2> -->
+  <!-- <app-quantidade-controle></app-quantidade-controle> -->
   <!-- <p style="white-space: pre-line;">{{ sobre }}</p> -->
+  <!-- <app-card-produto [produto]="produto"></app-card-produto> -->
+   
 </main>
 <app-footer></app-footer>
