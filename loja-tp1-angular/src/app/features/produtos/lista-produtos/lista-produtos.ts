@@ -17,7 +17,8 @@ export class ListaProdutos {
       preco: 1699.99,
       descricao: 'Canetas caras demais. Deus me livre.',
       imageUri: 'images/mounjaro.jpeg',
-      promo: false
+      promo: false,
+      estado: 'novo'
     },
     {
       id: 2,
@@ -25,15 +26,17 @@ export class ListaProdutos {
       preco: 1299.94,
       descricao: 'Continuam caras. Deus continue me livrando.',
       imageUri: 'images/ozempic.jpeg',
-      promo: false
+      promo: false,
+      estado: 'usado'
     },
     {
       id: 3,
       nome: 'Wegovy',
       preco: 2500.00,
-      descricao: 'Misericórdia. Deus foi para floripa?',
+      descricao: 'Misericórdia. Deus foi para floripa? 🌼',
       imageUri: 'images/wegovy.jpeg',
-      promo: true
+      promo: true,
+      estado: 'esgotado'
     }
   ];
 

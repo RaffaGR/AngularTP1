@@ -25,3 +25,5 @@ Exercicios 1 e 2:
 A4 > Continuamos a a3, criamos o card do produto, integramos os controle de quantidade nela e substituimos o controle de quantidade la no app para por ela, segunda parte da aula foi criar a lista de card produtos (fico com um bug no css q o prof deixo pra proxima aula e mexi no .conteudo css mexi de 800 para 300)
 extra: desativar: Inlay Hints (que atrapalha com as dicas)
 
+A5 > alinhamos os css para corrigir bug no max-width, entao começamos adicionado um atributo ao modal do produto "estado", entao aprendemos a usar os @ com if, swith case e for, para manipar o surgimento de conteudo de forma dinamica de acordo com valores das variavels focamos aplicar isso nos cards do produto 
+
