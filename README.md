@@ -1,8 +1,8 @@
 #Angular TP1
 
 A1 > Instalação do angular e inicialização e explicação da inicialização, aprendemos tbm a base da organização so da raiz automaticamente pela inicialização e explicação dela e alguns comandos como:
-npm install -g @angular/cli (instalar, mas o recomendado é atualizar o node pra versão node 24 primeiro e npm 12 pra levar o angular ao padrão q iriamos mexer que é o 22)
-ng version (ver a versão)
+> npm install -g @angular/cli (instalar, mas o recomendado é atualizar o node pra versão node 24 primeiro e npm 12 pra levar o angular ao padrão q iriamos mexer que é o 22) [direto no vs apos atualizar o node ainda costuma falhar pq o code demora muito para carregar o cmd dele, atualiza pelo cmd direto da maquina]
+> ng version (ver a versão)
 ng new world (para criar a pasta onde aceitamos varias coisas e recusamos a IA)
 cd world
 ng serve --open
@@ -10,6 +10,8 @@ Exercicios 1 e 2:
 1º fazer o world aparecer na pagina 
 2º Criar um tutorial explicando como criar endpoints de um CRUD usando Typescript, NodeJS e express
 
+extra q eu uso bastante:
+> npm start
 A2 > aprender a organizaçao dos compontentes, que seria core, feature, shared, aprendemos a importar componentes e como funciona e alguns comandos para criar eles de forma organizada como:
 ng new loja-tp1-angular --style=css --no-ssr (criar o projeto atalho direto)
 code loja-tp1-angular (abrir a pasta via vscode)
@@ -25,5 +27,8 @@ Exercicios 1 e 2:
 A4 > Continuamos a a3, criamos o card do produto, integramos os controle de quantidade nela e substituimos o controle de quantidade la no app para por ela, segunda parte da aula foi criar a lista de card produtos (fico com um bug no css q o prof deixo pra proxima aula e mexi no .conteudo css mexi de 800 para 300)
 extra: desativar: Inlay Hints (que atrapalha com as dicas)
 
-A5 > alinhamos os css para corrigir bug no max-width, entao começamos adicionado um atributo ao modal do produto "estado", entao aprendemos a usar os @ com if, swith case e for, para manipar o surgimento de conteudo de forma dinamica de acordo com valores das variavels focamos aplicar isso nos cards do produto 
+A5 > alinhamos os css para corrigir bug no max-width, entao começamos adicionado um atributo ao modal do produto "estado", entao aprendemos a usar os @ com if, swith case e for, para manipar o surgimento de conteudo de forma dinamica de acordo com valores das variavels focamos aplicar isso nos cards do produto, entao na parte 2 da aula, vimos pipes, vamos usar para criar um porcentual no valor e aplicamos nos cards
+ng generate pipe shared/pipes/desconto
+
+Cometi algum erro no css do card-produto.html, estou tentando descobri, entao o prof passou alguns exercicios  
 

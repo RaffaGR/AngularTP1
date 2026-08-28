@@ -21,9 +21,35 @@
         
         <p class="desc">{{produto().descricao}}</p>
 
-        <div class="linhapreco">
-            <span class="preco">{{produto().preco | currency:'BRL'}}</span>
+        <!-- <div class="linhapreco">
+            <span class="preco">{{produto().preco | currency:'BRL' : 'symbol' : '1.2-2'}}</span>
             <app-quantidade-controle [(contador)]="quantidade"></app-quantidade-controle>
+        </div> -->
+        <div class="preco-container">
+            @if(produto().promo){
+                <div class="preco">
+                    <span class="preco desconto">
+                        {{ produto().preco | desconto: 10 | currency:'BRL':'symbol':'1.2-2' }}
+                    </span>
+                </div>
+                <div class="preco">
+                    <span class="preco original">
+                        {{ produto().preco | currency:'BRL':'symbol':'1.2-2' }}
+                    </span>
+                </div>
+            }
+            @else {
+                <div class="preco">
+                    <span class="preco original">
+                        {{ produto().preco | currency:'BRL':'symbol':'1.2-2' }}
+                    </span>
+                </div>
+            }
+
+            @if(produto().estado != 'esgotado'){
+                <app-quantidade-controle [(contador)]="quantidade" />
+            }
+
         </div>
 
         <div class="acoes">

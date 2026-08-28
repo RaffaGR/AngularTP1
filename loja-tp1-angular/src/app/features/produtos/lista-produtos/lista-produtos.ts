@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { Produto } from '../../../model/produto';
 import { CardProduto } from "../card-produto/card-produto";
 
@@ -9,6 +9,17 @@ import { CardProduto } from "../card-produto/card-produto";
   styleUrl: './lista-produtos.css',
 })
 export class ListaProdutos {
+
+  apenasPromo = signal(false);
+
+  produtosExibidos = computed(() => this.apenasPromo() 
+  ? this.produtos.filter(p => p.promo)
+  : this.produtos
+  ); // computed pq não quer uma lista mutavel
+
+  alternarpromo(){
+    this.apenasPromo.update(v => !v);
+  }
 
   produtos = <Produto[]>[
     {
@@ -24,7 +35,7 @@ export class ListaProdutos {
       id: 2,
       nome: 'Ozempic',
       preco: 1299.94,
-      descricao: 'Continuam caras. Deus continue me livrando.',
+      descricao: 'Continuam caras. Deus continue me livrando. Imagine o inimaginavel. Meu deus, que vida. O cara vai la e sofre uma sacanagem dessa. Ainda sai da turma.',
       imageUri: 'images/ozempic.jpeg',
       promo: false,
       estado: 'usado'
@@ -36,6 +47,15 @@ export class ListaProdutos {
       descricao: 'Misericórdia. Deus foi para floripa? 🌼',
       imageUri: 'images/wegovy.jpeg',
       promo: true,
+      estado: 'esgotado'
+    },
+    {
+      id: 4,
+      nome: 'Novalgina',
+      preco: 2500.00,
+      descricao: 'Deus esta de olho em vcs.',
+      imageUri: 'images/novalgina.jpeg',
+      promo: false,
       estado: 'esgotado'
     }
   ];
