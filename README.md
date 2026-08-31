@@ -29,6 +29,8 @@ extra: desativar: Inlay Hints (que atrapalha com as dicas)
 
 A5 > alinhamos os css para corrigir bug no max-width, entao começamos adicionado um atributo ao modal do produto "estado", entao aprendemos a usar os @ com if, swith case e for, para manipar o surgimento de conteudo de forma dinamica de acordo com valores das variavels focamos aplicar isso nos cards do produto, entao na parte 2 da aula, vimos pipes, vamos usar para criar um porcentual no valor e aplicamos nos cards
 ng generate pipe shared/pipes/desconto
+Cometi algum erro no css do card-produto.html, estou tentando descobri, entao o prof passou alguns exercicios  (problema resolvido, era ordem das divs)
 
-Cometi algum erro no css do card-produto.html, estou tentando descobri, entao o prof passou alguns exercicios  
+ex1:
+
 
