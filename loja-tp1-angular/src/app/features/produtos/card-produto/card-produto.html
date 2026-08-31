@@ -1,4 +1,4 @@
-<article class="card" [class.promo]="produto().promo">
+<article class="card" [class.promo]="produto().promo && produto().estado != 'esgotado'">
     <img class="thumb" [src]="produto().imageUri" alt="">
     <div class="conteudo">
         <header class="cabecalho">
@@ -14,7 +14,7 @@
                     <span class="selo esgotado">Esgotado</span>
                 }
             }
-            @if(produto().promo) {
+            @if(produto().promo && produto().estado != 'esgotado') {
                 <span class="selo promo">Aproveite</span>
             }
         </header>
@@ -27,7 +27,7 @@
         </div> -->
         <div class="preco-container">
             <div class="preco-group">
-                @if(produto().promo){
+                @if(produto().promo && produto().estado != 'esgotado'){
                     <span class="preco desconto">
                         {{ produto().preco | desconto: 10 | currency:'BRL':'symbol':'1.2-2' }}
                     </span>

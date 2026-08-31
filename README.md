@@ -33,7 +33,10 @@ Cometi algum erro no css do card-produto.html, estou tentando descobri, entao o 
 
 ex1: Crie um pipe “truncar”, que deverá fazer o truncamento da descrição do produto. A quantidade de caracteres deverá ser parametrizável, bem como o sinal que deve aparecer quanto for trucado.
 ng generate pipe shared/pipes/truncar
-feito
+Feito
 
-ex2: 
+ex2: Considere o código do print da aula do lista-produtos.html. Reescreva-o sem @if/else, mas usando o @empty do @for.
+Feito
 
+ex3: Atualmente é possível um produto estar esgotado, mas com o selo de promoção. Impeça que isso aconteça
+Feito
