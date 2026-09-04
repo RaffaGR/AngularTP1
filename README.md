@@ -40,3 +40,7 @@ Feito
 
 ex3: Atualmente é possível um produto estar esgotado, mas com o selo de promoção. Impeça que isso aconteça
 Feito
+
+A6 > aprendemos novos comandos e forma de criar componentes e service e implemetamos observe para fins didatico
+ng g s core/services/logger --flat=false --type="service"
+ng g s features/produtos/services/produto --type="service"
