@@ -1,6 +1,8 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { Produto } from '../../../model/produto';
 import { CardProduto } from "../card-produto/card-produto";
+import { ProdutoService } from '../services/produto.service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-lista-produtos',
@@ -9,6 +11,10 @@ import { CardProduto } from "../card-produto/card-produto";
   styleUrl: './lista-produtos.css',
 })
 export class ListaProdutos {
+
+  private produtoService = inject(ProdutoService);
+
+  private produto = toSignal<Produto[],Produto[]>(this.produtoService.listar(), {initialValue: []});
 
   apenasPromo = signal(false);
 
