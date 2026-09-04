@@ -1,0 +1,57 @@
+<article class="card" [class.promo]="produto().promo && produto().estado != 'esgotado'">
+    <img class="thumb" [src]="produto().imageUri" alt="">
+    <div class="conteudo">
+        <header class="cabecalho">
+            <h3 class="titulo" >{{produto().nome}}</h3>
+            @switch (produto().estado) {
+                @case('novo') {
+                    <span class="selo novo">Novo</span>
+                }
+                @case ('usado') {
+                    <span class="selo usado">Usado</span>
+                }
+                @case ('esgotado') {
+                    <span class="selo esgotado">Esgotado</span>
+                }
+            }
+            @if(produto().promo && produto().estado != 'esgotado') {
+                <span class="selo promo">Aproveite</span>
+            }
+        </header>
+        
+        <p class="desc">{{ produto().descricao | truncar: 60 : '...' }}</p>
+
+        <!-- <div class="linhapreco">
+            <span class="preco">{{produto().preco | currency:'BRL' : 'symbol' : '1.2-2'}}</span>
+            <app-quantidade-controle [(contador)]="quantidade"></app-quantidade-controle>
+        </div> -->
+        <div class="preco-container">
+            <div class="preco-group">
+                @if(produto().promo && produto().estado != 'esgotado'){
+                    <span class="preco desconto">
+                        {{ produto().preco | desconto: 10 | currency:'BRL':'symbol':'1.2-2' }}
+                    </span>
+                    <span class="preco original">
+                        {{ produto().preco | currency:'BRL':'symbol':'1.2-2' }}
+                    </span>
+                }
+                @else {
+                    <span class="preco original">
+                        {{ produto().preco | currency:'BRL':'symbol':'1.2-2' }}
+                    </span>
+                }
+            </div>
+
+            @if(produto().estado != 'esgotado'){
+                <app-quantidade-controle [(contador)]="quantidade" />
+            }
+        </div>
+
+        <div class="acoes">
+            @if(produto().estado != 'esgotado' && quantidade() > 0) {
+                <button type="button" class="btn primary" (click)="onAdd()">Adicionar</button>
+            }
+            <button type="button" class="btn ghost" (click)="onView()">Detalhes</button>
+        </div>
+    </div>
+</article>
