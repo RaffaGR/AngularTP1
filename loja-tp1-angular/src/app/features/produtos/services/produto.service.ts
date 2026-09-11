@@ -51,5 +51,11 @@ export class ProdutoService {
         return of(this.listaMock).pipe(
             delay(250)
         ); 
+        // aqui era para passar a lista dos produtos atraves do of, pode estar errado
+      }
+
+      getById(id: number): Observable<Produto | undefined>{
+        // this.logger
+        return of(this.listaMock.find(p => p.id == id)).pipe(delay(500));
       }
 }

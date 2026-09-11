@@ -2,10 +2,13 @@
     <img src="images/logoifsp.png" alt="logo do ifsp">
     <h1><!-- {{titulo}} --> {{ titulo() }}</h1>
     <nav ()>
-        <a href="#">Home</a>
-        <a href="#">Produtos</a>
         <!-- <a href="#" (click)="exibirMensagem('Teste')">Sobre</a> -->
-        <a href="#" (click)="enviarSobre()">Sobre</a>
+        <!-- <a href="#">Home</a>
+        <a href="#">Produtos</a>
+        <a href="#" (click)="enviarSobre()">Sobre</a> -->
+        <a routerLink="/">Home</a>
+        <a routerLink="/produtos">Produtos</a>
+        <a routerLink="/sobre">Sobre</a>
     </nav>
 </header>
 

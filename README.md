@@ -44,3 +44,17 @@ Feito
 A6 > aprendemos novos comandos e forma de criar componentes e service e implemetamos observe para fins didatico
 ng g s core/services/logger --flat=false --type="service"
 ng g s features/produtos/services/produto --type="service"
+
+Tinha exercicios que ele disse q ia passar mas nao liberou no moodle pra nois fazer...
+
+A7 > Routers, foi explicado como funciona detalhadamente, aprendemos como que passa/envia parametros por ela e a segurança para tomar cuidado com envio de tokens, e tbm como recebe parametros, foi destacado que o tal da ?queryParams (?qparams) para enviar parametros e o & para passar mais parametros onde o Observables e injects são fundamentais, um para receber e outro para enviar, usar inject para navegar de forma que não dependa do usuario onde a propria aplicação q executa ações
+Entao praticamos ao criar componente produto detalhe e ...
+
+erros encontrados: Acho q achei um erro na em produto service, ja comentei a explicação no codigo, o erro veio da A6 provavelmente que posso ter cometido, vou verificar quando tiver em casa
+
+outro problema, seguimos o prof mas o link nao funcionou, temos q entender o pq mas nesse caso da A7
+
+3 exercicios - ele disse q vai colocar no moodle, bora torcer kk
+botao de navegação programatica >
+rotas aninhadas > 
+tratamento de rota inexistente > 404 em vez do '' e 404 leva pro home
