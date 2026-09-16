@@ -51,10 +51,14 @@ A7 > Routers, foi explicado como funciona detalhadamente, aprendemos como que pa
 Entao praticamos ao criar componente produto detalhe e ...
 
 erros encontrados: Acho q achei um erro na em produto service, ja comentei a explicação no codigo, o erro veio da A6 provavelmente que posso ter cometido, vou verificar quando tiver em casa
+resolvido: o problema era q o promo esgotado nao funciona, e class original estava sublinhando
 
 outro problema, seguimos o prof mas o link nao funcionou, temos q entender o pq mas nesse caso da A7
+resolvido: faltou importar router no header e tirar um () no html do nav
 
 3 exercicios - ele disse q vai colocar no moodle, bora torcer kk
 botao de navegação programatica >
 rotas aninhadas > 
 tratamento de rota inexistente > 404 em vez do '' e 404 leva pro home
+
+Ex: a6 > fazendo

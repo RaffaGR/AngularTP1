@@ -23,7 +23,7 @@ export class ProdutoService {
           preco: 1299.94,
           descricao: 'Continuam caras. Deus continue me livrando. Imagine o inimaginavel. Meu deus, que vida. O cara vai la e sofre uma sacanagem dessa. Ainda sai da turma.',
           imageUri: 'images/ozempic.jpeg',
-          promo: false,
+          promo: true,
           estado: 'usado'
         },
         {
@@ -50,8 +50,7 @@ export class ProdutoService {
         this.logger.info("[PRODUTO SERVICE] - Retornando lista de produtos");
         return of(this.listaMock).pipe(
             delay(250)
-        ); 
-        // aqui era para passar a lista dos produtos atraves do of, pode estar errado
+        );
       }
 
       getById(id: number): Observable<Produto | undefined>{

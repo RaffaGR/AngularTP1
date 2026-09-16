@@ -14,19 +14,19 @@ export class ListaProdutos {
 
   private produtoService = inject(ProdutoService);
 
-  private produto = toSignal<Produto[],Produto[]>(this.produtoService.listar(), {initialValue: []});
+  produtos = toSignal<Produto[], Produto[]>(this.produtoService.listar(), {initialValue: []});
 
   apenasPromo = signal(false);
 
-  produtosExibidos = computed(() => this.apenasPromo() 
-  ? this.produtos.filter(p => p.promo)
-  : this.produtos
+  produtosExibidos = computed(() => this.apenasPromo()
+  ? this.produtos().filter(p => p.promo)
+  : this.produtos()
   ); // computed pq não quer uma lista mutavel
 
   alternarpromo(){
     this.apenasPromo.update(v => !v);
   }
-
+/* 
   produtos = <Produto[]>[
     {
       id: 1,
@@ -43,7 +43,7 @@ export class ListaProdutos {
       preco: 1299.94,
       descricao: 'Continuam caras. Deus continue me livrando. Imagine o inimaginavel. Meu deus, que vida. O cara vai la e sofre uma sacanagem dessa. Ainda sai da turma.',
       imageUri: 'images/ozempic.jpeg',
-      promo: false,
+      promo: true,
       estado: 'usado'
     },
     {
@@ -52,7 +52,7 @@ export class ListaProdutos {
       preco: 2500.00,
       descricao: 'Misericórdia. Deus foi para floripa? 🌼',
       imageUri: 'images/wegovy.jpeg',
-      promo: true,
+      promo: true, // esgotado em promoção nao mostra desconto
       estado: 'esgotado'
     },
     {
@@ -64,7 +64,7 @@ export class ListaProdutos {
       promo: false,
       estado: 'esgotado'
     }
-  ];
+  ]; */
 
   onViewProduct(id: number){
     alert(`Visualizando produto id: ${id}`);

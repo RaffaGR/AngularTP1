@@ -1,9 +1,11 @@
 import { Component, input, output } from '@angular/core';
-import { Banner } from "../banner/banner";
+// import { Banner } from "../banner/banner";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   // imports: [Banner],
+  imports: [RouterLink],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
