@@ -45,3 +45,18 @@
     padding: 16px;
     text-align: center;
 }
+
+.filtros {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filtro-categoria {
+    border: 1px solid #e5e7eb;
+    background: #fff;
+    color: #374151;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+}

@@ -15,7 +15,8 @@ export class ProdutoService {
           descricao: 'Canetas caras demais. Deus me livre.',
           imageUri: 'images/mounjaro.jpeg',
           promo: false,
-          estado: 'novo'
+          estado: 'novo',
+          categoria: 'Analtegico'
         },
         {
           id: 2,
@@ -24,7 +25,8 @@ export class ProdutoService {
           descricao: 'Continuam caras. Deus continue me livrando. Imagine o inimaginavel. Meu deus, que vida. O cara vai la e sofre uma sacanagem dessa. Ainda sai da turma.',
           imageUri: 'images/ozempic.jpeg',
           promo: true,
-          estado: 'usado'
+          estado: 'usado',
+          categoria: 'remedio'
         },
         {
           id: 3,
@@ -33,7 +35,8 @@ export class ProdutoService {
           descricao: 'Misericórdia. Deus foi para floripa? 🌼',
           imageUri: 'images/wegovy.jpeg',
           promo: true,
-          estado: 'esgotado'
+          estado: 'esgotado',
+          categoria: 'remedio'
         },
         {
           id: 4,
@@ -42,7 +45,8 @@ export class ProdutoService {
           descricao: 'Deus esta de olho em vcs.',
           imageUri: 'images/novalgina.jpeg',
           promo: false,
-          estado: 'esgotado'
+          estado: 'esgotado',
+          categoria: 'remedio'
         }
       ];
 

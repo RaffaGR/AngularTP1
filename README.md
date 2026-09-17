@@ -61,4 +61,14 @@ botao de navegação programatica >
 rotas aninhadas > 
 tratamento de rota inexistente > 404 em vez do '' e 404 leva pro home
 
-Ex: a6 > fazendo
+Ex: a6 (mas no pdf é a aula 5)
+1. CategoriaService (domínio):
+1º adcionamos categoria ao produto, 2º preenchemos a categoria nos 4 produtos, 3º criamos o service categoria que reutiliza produto para inserir nele via observable as categorias e trazer esse controe estio string, 4º entao para usar na lista de produtos precisavamos apenas adicionamos o inject trazer, signal atualizar, select/paraSelecionar padrao todos, e o set para atualizar, por fim montamos o <select> no HTML e adicionamos a class css da categoria
+ng g s features/produtos/services/categoria --type="service"
+
+2. Logger avançado:
+No logger.servicelocalStorage trivalmente criarmos a interface e o ler e gravar dentro do LoggerService que utiliza a interface para salvar os dados do objeto
+
+EX a7 (mas no pdf e a aula 6) sera feito quando houver mais tempo
+
+A8 - esperando o prof

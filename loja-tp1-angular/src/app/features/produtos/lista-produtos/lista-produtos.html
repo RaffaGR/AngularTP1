@@ -14,14 +14,23 @@
     <header class="barradetarefas">
         <h2>Catálogo</h2>
 
-        <button class="btn sopromo" [class.active]="apenasPromo()" (click)="alternarpromo()">
-            @if(apenasPromo()){
-                Mostrar todos
-            }
-            @else {
-                Promoções
-            }
-        </button>
+        <div class="filtros">
+            <select class="filtro-categoria" (change)="selecionarCategoria($event)">
+                <option value="">Todas as categorias</option>
+                @for (cat of categorias(); track cat) {
+                    <option [value]="cat">{{ cat }}</option>
+                }
+            </select>
+            
+            <button class="btn sopromo" [class.ativo]="apenasPromo()" (click)="alternarpromo()">
+                @if(apenasPromo()){
+                    Mostrar todos
+                }
+                @else {
+                    Promoções
+                }
+            </button>
+        </div>
     </header>
 
     <div class="grid">

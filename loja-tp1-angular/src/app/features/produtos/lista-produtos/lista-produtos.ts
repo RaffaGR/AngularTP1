@@ -2,6 +2,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { Produto } from '../../../model/produto';
 import { CardProduto } from "../card-produto/card-produto";
 import { ProdutoService } from '../services/produto.service';
+import { CategoriaService } from '../services/categoria.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
@@ -13,15 +14,32 @@ import { toSignal } from '@angular/core/rxjs-interop';
 export class ListaProdutos {
 
   private produtoService = inject(ProdutoService);
+  private categoriaService = inject(CategoriaService);
 
   produtos = toSignal<Produto[], Produto[]>(this.produtoService.listar(), {initialValue: []});
+  categorias = toSignal<string[], string[]>(this.categoriaService.listar(), {initialValue: []});
 
   apenasPromo = signal(false);
+  categoriaSelecionada = signal<string>(''); // '' = todas
 
-  produtosExibidos = computed(() => this.apenasPromo()
+  /* produtosExibidos = computed(() => this.apenasPromo()
   ? this.produtos().filter(p => p.promo)
   : this.produtos()
-  ); // computed pq não quer uma lista mutavel
+  ); */ // computed pq não quer uma lista mutavel
+  produtosExibidos = computed(() => {
+    let lista = this.produtos();
+
+    if (this.categoriaSelecionada() !== '') {
+      lista = lista.filter(p => p.categoria === this.categoriaSelecionada());
+    }
+
+    if (this.apenasPromo()) {
+      lista = lista.filter(p => p.promo);
+    }
+
+    return lista;
+  });
+
 
   alternarpromo(){
     this.apenasPromo.update(v => !v);
@@ -65,6 +83,11 @@ export class ListaProdutos {
       estado: 'esgotado'
     }
   ]; */
+
+  selecionarCategoria(evento: Event){
+    const alvo = evento.target as HTMLSelectElement;
+    this.categoriaSelecionada.set(alvo.value);
+  }
 
   onViewProduct(id: number){
     alert(`Visualizando produto id: ${id}`);
