@@ -4,6 +4,7 @@ import { CardProduto } from "../card-produto/card-produto";
 import { ProdutoService } from '../services/produto.service';
 import { CategoriaService } from '../services/categoria.service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-lista-produtos',
@@ -14,9 +15,13 @@ import { toSignal } from '@angular/core/rxjs-interop';
 export class ListaProdutos {
 
   private produtoService = inject(ProdutoService);
+
+  /* protected */ carregando = signal(true);
+
   private categoriaService = inject(CategoriaService);
 
-  produtos = toSignal<Produto[], Produto[]>(this.produtoService.listar(), {initialValue: []});
+  produtos = toSignal<Produto[], Produto[]>(this.produtoService.listar().pipe(finalize(() => this.carregando.set(false))), {initialValue: []});
+
   categorias = toSignal<string[], string[]>(this.categoriaService.listar(), {initialValue: []});
 
   apenasPromo = signal(false);

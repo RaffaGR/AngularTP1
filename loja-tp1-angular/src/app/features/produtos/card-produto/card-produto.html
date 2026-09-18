@@ -2,7 +2,7 @@
     <img class="thumb" [src]="produto().imageUri" alt="">
     <div class="conteudo">
         <header class="cabecalho">
-            <h3 class="titulo" >{{produto().nome}}</h3>
+            <h3 class="titulo" >{{produto().nome | truncar: 20 : '...'}}</h3>
             @switch (produto().estado) {
                 @case('novo') {
                     <span class="selo novo">Novo</span>
@@ -19,7 +19,8 @@
             }
         </header>
         
-        <p class="desc">{{ produto().descricao | truncar: 60 : '...' }}</p>
+        <!-- <p class="desc">{{ produto().descricao | truncar: 60 : '...' }}</p> -->
+        <p class="desc">{{ produto().descricao | truncar: 60 : true : '...'  }}</p> <!-- truncar ja é o valor -->
 
         <!-- <div class="linhapreco">
             <span class="preco">{{produto().preco | currency:'BRL' : 'symbol' : '1.2-2'}}</span>
