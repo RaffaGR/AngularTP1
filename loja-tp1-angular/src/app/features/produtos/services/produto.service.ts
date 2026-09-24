@@ -11,7 +11,7 @@ export class ProdutoService {
 
     private apiUrl = 'https://fakestoreapi.com/products';
 
-    private readonly listaMock = <Produto[]>[
+    /* private readonly listaMock = <Produto[]>[
         {
           id: 1,
           nome: 'Mounjaro',
@@ -52,7 +52,7 @@ export class ProdutoService {
           estado: 'esgotado',
           categoria: 'remedio'
         }
-      ];
+      ]; */
 
       listar(): Observable<Produto[]> {
         this.logger.info("[PRODUTO SERVICE] - Retornando lista de produtos");
@@ -68,9 +68,9 @@ export class ProdutoService {
         )
       }
 
-      getById(id: number): Observable<Produto | undefined>{
+      getById(id: number): Observable<Produto | undefined/* any */>{ // vir com ele pronto, proxima semana vamos usar
         // this.logger
-        return of(this.listaMock.find(p => p.id == id)).pipe(delay(500));
+        // return of(this.listaMock.find(p => p.id == id)).pipe(delay(500));
         
         // EXERCICIO A8
         // pode ser feito via cache ou endpoint, vou fazer os 2 e um eu deixo comentado, via cache acho q seria lista, find na lista
@@ -84,6 +84,29 @@ export class ProdutoService {
             return of([]);
           })
         ) */
-        
+
+        // via cache tbm mas em vez de any, o Produto
+        return this.http.get<Produto[]>(this.apiUrl).pipe(
+          map(lista => {
+            const produtoEncontrado = lista.find(p => p.id == id);
+            return produtoEncontrado ? ProdutoMapper.fromJson(produtoEncontrado) : undefined;
+          }),
+          catchError(erro => {
+            this.logger.error("[PRODUTO SERVICE] - Erro ao listar produto");
+            return of(undefined);
+          })
+        );
+      }
+
+      criar(produto: Produto): Observable<any>{
+        /* let body = {
+          title: produto.nome,
+          price: produto.preco,
+          description: produto.descricao,
+          image: produto.imageUri,
+          category: produto.categoria
+        } */
+
+        return this.http.post(this.apiUrl, /* body */ ProdutoMapper.toJson(produto));
       }
 }

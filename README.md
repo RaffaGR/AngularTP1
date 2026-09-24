@@ -74,3 +74,6 @@ EX a7 (mas no pdf e a aula 6) sera feito quando houver mais tempo
 A8 - basicamente criamos o json para manipular os objetos e implementamos uma entrada via api (https://fakestoreapi.com/docs#tag/Products) 
 exercicio, criar interface para substituir o any do retorno que usamos em produto.service e la onde ta o produtoMapper
 e + 2
+
+A9 - prof explicou disse q atualmente tem 3 tipos de suport form e explico o template-drive, entao começamos a montar criando a lista de categoria, parte 2 a espera
+ng g c features/produtos/produto-form --flat=false

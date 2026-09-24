@@ -32,7 +32,7 @@ export class ProdutoMapper {
             imageUri: json.image,
             promo: json.id % 5 == 0 && _estado != 'esgotado',
             estado: _estado,
-            categoria: '', // prof n colocou a categoria
+            categoria: json.category, 
         }
     }
 
@@ -44,7 +44,7 @@ export class ProdutoMapper {
             description: produto.descricao,
             image: produto.imageUri,
             // categoria: '', // o meu seria isso
-            category: 'general', // do prof
+            category: produto.categoria, // do prof
         }
     }
 }
