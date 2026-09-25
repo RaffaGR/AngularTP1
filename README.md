@@ -75,5 +75,5 @@ A8 - basicamente criamos o json para manipular os objetos e implementamos uma en
 exercicio, criar interface para substituir o any do retorno que usamos em produto.service e la onde ta o produtoMapper
 e + 2
 
-A9 - prof explicou disse q atualmente tem 3 tipos de suport form e explico o template-drive, entao começamos a montar criando a lista de categoria, parte 2 a espera
+A9 - prof explicou disse q atualmente tem 3 tipos de suport form e explico o template-drive, entao começamos a montar criando a lista de categoria, parte 2 continuamos a parte 1 utilizando o criar e criamos a resposta e entao mexemos no html, finalizamos a aula, mas ainda vamos continuar na proxima aula e disse q teremos alguns erros
 ng g c features/produtos/produto-form --flat=false
