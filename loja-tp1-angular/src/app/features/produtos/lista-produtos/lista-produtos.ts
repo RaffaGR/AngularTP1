@@ -5,6 +5,7 @@ import { ProdutoService } from '../services/produto.service';
 import { CategoriaService } from '../services/categoria.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { finalize } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-produtos',
@@ -13,6 +14,8 @@ import { finalize } from 'rxjs';
   styleUrl: './lista-produtos.css',
 })
 export class ListaProdutos {
+
+  private router = inject(Router);
 
   private produtoService = inject(ProdutoService);
 
@@ -100,5 +103,9 @@ export class ListaProdutos {
 
   onAddProduct(produto: {id: number, qtd: number}){
     alert(`Adicionado produto ${produto.id} | quantidade: ${produto.qtd}`)
+  }
+
+  onCreateProduct(rota: string) {
+    this.router.navigateByUrl(rota);
   }
 }

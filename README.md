@@ -77,3 +77,9 @@ e + 2
 
 A9 - prof explicou disse q atualmente tem 3 tipos de suport form e explico o template-drive, entao começamos a montar criando a lista de categoria, parte 2 continuamos a parte 1 utilizando o criar e criamos a resposta e entao mexemos no html, finalizamos a aula, mas ainda vamos continuar na proxima aula e disse q teremos alguns erros
 ng g c features/produtos/produto-form --flat=false
+
+ex 1 - getById de ProdutoService
+ex 2 - implementamos a categoria de produtos vindos da API e criamos select> na UI com filtro de categoria
+ex 3 - tratamento de queda de rede > “Erro ao carregar produtos. Tente novamente” de forma q diferencie a vazia da real requisição
+
+A10 - Finalizamos a Aula 9 no dia da A10 e antes de começar a aula 10 foi apresentado atividade pra entregar, uma api ate dia 19 de novembro, entao a A10 ainda ira startar? ou era so a explicação da atividade/trabalho de montar uma API
