@@ -10,7 +10,7 @@ export class CategoriaService {
         return this.produtoService.listar().pipe(
             map(produtos => {
                 const categorias: string[] = [];
-                for (const p of produtos) {
+                for (const p of produtos ?? []) {
                     if (!categorias.includes(p.categoria)) {
                         categorias.push(p.categoria);
                     }

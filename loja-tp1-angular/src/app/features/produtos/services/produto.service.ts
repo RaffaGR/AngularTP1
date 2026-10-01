@@ -54,7 +54,7 @@ export class ProdutoService {
         }
       ]; */
 
-      listar(): Observable<Produto[]> {
+      listar(): Observable<Produto[] | null> {
         this.logger.info("[PRODUTO SERVICE] - Retornando lista de produtos");
         // return of(this.listaMock).pipe(
         //     delay(250)
@@ -63,7 +63,8 @@ export class ProdutoService {
           map(lista => lista.map(prod => ProdutoMapper.fromJson(prod))),
           catchError(erro => {
             this.logger.error("[PRODUTO SERVICE] - Erro ao listar produto");
-            return of([]);
+            // return of([]); // assim a tela não conseguiria diferenciar erro de lista vazia
+            return of(null);
           })
         )
       }
@@ -86,13 +87,21 @@ export class ProdutoService {
         ) */
 
         // via cache tbm mas em vez de any, o Produto
-        return this.http.get<Produto[]>(this.apiUrl).pipe(
+        /* return this.http.get<Produto[]>(this.apiUrl).pipe(
           map(lista => {
             const produtoEncontrado = lista.find(p => p.id == id);
             return produtoEncontrado ? ProdutoMapper.fromJson(produtoEncontrado) : undefined;
           }),
           catchError(erro => {
             this.logger.error("[PRODUTO SERVICE] - Erro ao listar produto");
+            return of(undefined);
+          })
+        ); */
+
+        return this.http.get<any>(`${this.apiUrl}/${id}`).pipe(
+          map(produto => ProdutoMapper.fromJson(produto)),
+          catchError(erro => {
+            this.logger.error("[PRODUTO SERVICE] - Erro ao buscar produto");
             return of(undefined);
           })
         );

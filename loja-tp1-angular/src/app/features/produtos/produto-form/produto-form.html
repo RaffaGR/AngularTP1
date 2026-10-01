@@ -13,7 +13,7 @@ Mollitia veritatis incidunt dolore ducimus eligendi velit voluptates provident a
 <section class="form-container">
     <h2>Novo Produto</h2>
 
-    <form #formulario="ngForm" (ngSubmit)="formulario" novalidate>
+    <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)" novalidate>
         <div class="campo">
             <label for="nome">Nome</label>
             <input type="text" id="nome" name="nome" [(ngModel)]="novoProduto.nome" required minlength="3" />
@@ -25,7 +25,7 @@ Mollitia veritatis incidunt dolore ducimus eligendi velit voluptates provident a
         <div class="campo">
             <label for="preco">Preço</label>
             <input type="text" id="preco" name="preco" [(ngModel)]="novoProduto.preco" required min="1" />
-            @if(form.controls['preco']?.invalid && formulario.submmit) {
+            @if(formulario.controls['preco']?.invalid && formulario.submitted) {
                 <small class="erro" >
                     Preço é obrigatorio e deve ser no minimo 1.
                 </small>
@@ -34,29 +34,29 @@ Mollitia veritatis incidunt dolore ducimus eligendi velit voluptates provident a
 
         <div>
             <label for="descricao">Descrição</label>
-            <textarea id="descricao" name="descricao" [(ngModel)]="novaProduto.descricao" required ></textarea>
+            <textarea id="descricao" name="descricao" [(ngModel)]="novoProduto.descricao" required ></textarea>
         </div>
 
         <div class="campo">
             <label for="categoria">Categoria</label>
-            <select id="categoria" name="categoria" [(ngModel)]="categoriaSelecionada">
+            <select id="categoria" name="categoria" [ngModel]="categoriaSelecionada()" (ngModelChange)="categoriaSelecionada.set($event)">
                 <option value="">Selecione...</option>
-                for(cat of categorias(); track cat) {
+                @for(cat of categorias(); track cat) {
                     <option [value]="cat">{{ cat }}</option>
                 }
             </select>
-            @if(formulario.submitted && formulario.controls["categoria"].invalid){
+            @if(formulario.submitted && formulario.controls["categoria"]?.invalid){
                 <small class="erro">
                     Selecione uma categoria
                 </small>
             }
         </div>
 
-        @if(mostrarNovaCategoria()){
+        @if(categoriaNovaSelecionada()){
             <div class="campo">
                 <label for="novaCategoria">Nova Categoria</label>
-                <input type="text" id="novaCategoria" name="novaCategoria" [(ngModel)]="novaCategoria" required />
-                @if(mostrarNovaCategoria() && !(formulario.submitted && novaCategoria().trim().length == 0)){
+                <input type="text" id="novaCategoria" name="novaCategoria" [ngModel]="novaCategoria()" (ngModelChange)="novaCategoria.set($event)" required />
+                @if(categoriaNovaSelecionada() && !(formulario.submitted && novaCategoria().trim().length == 0)){
                     <small class="erro">
                         Digite a categoria
                     </small>
@@ -66,7 +66,7 @@ Mollitia veritatis incidunt dolore ducimus eligendi velit voluptates provident a
 
         <div class="campo">
             <label for="imageUrl">Imagem (URL)</label>
-            <input type="text" id="imageUrl" name="imageUrl" [(ngModel)]="novoProduto.imageUrl" />
+            <input type="text" id="imageUrl" name="imageUrl" [(ngModel)]="novoProduto.imageUri" />
         </div>
 
         <div class="campo check">
@@ -78,7 +78,7 @@ Mollitia veritatis incidunt dolore ducimus eligendi velit voluptates provident a
 
         <div class="botoesform">
             <button type="submit" [disabled]="enviando()">Salvar</button>
-            <button class="botaocancelar" (click)="this.router.navigateByUrl('/produtos')">Cancelar</button>
+            <button class="botaocancelar" (click)="router.navigateByUrl('/produtos')">Cancelar</button>
         </div>
 
         @if(mensagem()){

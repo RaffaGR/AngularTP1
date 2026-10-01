@@ -25,7 +25,7 @@ export class ProdutoForm {
   private produtos = toSignal(this.produtoService.listar(), {initialValue: []});
 
   categorias = computed(() => {
-    const lista = this.produtos().map(p => p.categoria).filter(Boolean);
+    const lista = (this.produtos() ?? []).map(p => p.categoria).filter(Boolean);
     const unicas = Array.from(new Set(lista));
     return [...unicas, 'Outra'];
   })

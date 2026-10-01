@@ -36,6 +36,9 @@
     @if(carregando()){
         <p>Carregando produtos...</p>
     }
+    @else if (produtos() === null) {
+        <p class="vazio">Erro ao carregar produtos. Tente novamente</p>
+    }
     @else if (produtosExibidos().length == 0) {
         <p class="vazio">Nenhum produto encontrado para ser exbido.</p>
     }

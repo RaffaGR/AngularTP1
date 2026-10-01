@@ -20,7 +20,7 @@ export class ListaProdutos {
 
   private categoriaService = inject(CategoriaService);
 
-  produtos = toSignal<Produto[], Produto[]>(this.produtoService.listar().pipe(finalize(() => this.carregando.set(false))), {initialValue: []});
+  produtos = toSignal<Produto[] | null, Produto[]>(this.produtoService.listar().pipe(finalize(() => this.carregando.set(false))), {initialValue: []});
 
   categorias = toSignal<string[], string[]>(this.categoriaService.listar(), {initialValue: []});
 
@@ -32,7 +32,7 @@ export class ListaProdutos {
   : this.produtos()
   ); */ // computed pq não quer uma lista mutavel
   produtosExibidos = computed(() => {
-    let lista = this.produtos();
+    let lista = this.produtos() ?? [];
 
     if (this.categoriaSelecionada() !== '') {
       lista = lista.filter(p => p.categoria === this.categoriaSelecionada());
