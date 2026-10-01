@@ -82,4 +82,4 @@ ex 1 - getById de ProdutoService
 ex 2 - implementamos a categoria de produtos vindos da API e criamos select> na UI com filtro de categoria
 ex 3 - tratamento de queda de rede > “Erro ao carregar produtos. Tente novamente” de forma q diferencie a vazia da real requisição
 
-A10 - Finalizamos a Aula 9 no dia da A10 e antes de começar a aula 10 foi apresentado atividade pra entregar, uma api ate dia 19 de novembro, entao a A10 ainda ira startar? ou era so a explicação da atividade/trabalho de montar uma API
+A10 - Finalizamos a Aula 9 no dia da A10 e antes de começar a aula 10 foi apresentado atividade pra entregar, uma api ate dia 19 de novembro, entao a A10 ainda ira startar? ou era so a explicação da atividade/trabalho de montar uma API, a sim, é para montarmos o prototipo dessa API estilo loja
