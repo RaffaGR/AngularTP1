@@ -13,9 +13,9 @@ Exercicios 1 e 2:
 extra q eu uso bastante:
 > npm start
 A2 > aprender a organizaçao dos compontentes, que seria core, feature, shared, aprendemos a importar componentes e como funciona e alguns comandos para criar eles de forma organizada como:
-ng new loja-tp1-angular --style=css --no-ssr (criar o projeto atalho direto)
-code loja-tp1-angular (abrir a pasta via vscode)
-ng generate component core/header (ou ng g c core/header (que é um atalho ára criar o componente de forma organizada))
+> ng new loja-tp1-angular --style=css --no-ssr (criar o projeto atalho direto)
+> code . loja-tp1-angular (abrir a pasta via vscode)
+> ng generate component core/header (ou ng g c core/header (que é um atalho ára criar o componente de forma organizada))
 
 A3 > Aprendemos a interpolar/inserir variaveis de diversas no angular, via componente usando signal input/output e a variavel dinamica direto que tinha sido realizado via exercicio anteriormente e criamos o componente quantidade-controle e uma interface produto, mas ai pausamos, o card-produto 
 Comndos aprendido:
@@ -83,3 +83,8 @@ ex 2 - implementamos a categoria de produtos vindos da API e criamos select> na 
 ex 3 - tratamento de queda de rede > “Erro ao carregar produtos. Tente novamente” de forma q diferencie a vazia da real requisição
 
 A10 - Finalizamos a Aula 9 no dia da A10 e antes de começar a aula 10 foi apresentado atividade pra entregar, uma api ate dia 19 de novembro, entao a A10 ainda ira startar? ou era so a explicação da atividade/trabalho de montar uma API, a sim, é para montarmos o prototipo dessa API estilo loja
+
+A11 - foi apenas prototipar o projeto da loja que teremos q entregar
+
+A12 - foi relembrado diversas ações rapidamente como signal, input/output, e entao explicado rapidamente o effect q aparentemente é isso q vamos precisar, entao programamos o carrinho para salvar via adicionar no localstore onde via effect verificamos o estado/conteudo do item para atualizar
+> ng g s features/carrinho/services/carrinho --flat=true --type=service
