@@ -1,13 +1,13 @@
-import { computed, effect, Inject, Service, signal } from '@angular/core';
+import { computed, effect, Injectable, Service, signal } from '@angular/core';
 import { ItemPedido } from '../../../model/item-pedido';
 import { Produto } from '../../../model/produto';
 
 // @Service()
-@Inject({
+@Injectable({
     providedIn: 'root',
 })
 export class CarrinhoService {
-
+/*  so estranhei q ta undefined o localstored disso */
     private _liistaItens = signal<ItemPedido[]>(this._carregarProdutos());
 
     itens = this._liistaItens.asReadonly();
@@ -44,13 +44,39 @@ export class CarrinhoService {
         const itens = this._liistaItens();
         const idx = itens.findIndex(item => item.produto.id === produto.id);
         if(idx > -1) {
-            const listaAtualizada = itens.slice();
-            listaAtualizada[idx] = {...listaAtualizada[idx], quantidade: listaAtualizada[idx].quantidade + quantidade};
-            this._liistaItens.set(listaAtualizada);
+            // const listaAtualizada = itens.slice(); // nao precisa do slice pq a versão tornou obsoleto
+            // listaAtualizada[idx] = {...listaAtualizada[idx], quantidade: listaAtualizada[idx].quantidade + quantidade};
+            // this._liistaItens.set(listaAtualizada);
+            /* o problema do badge travar esta aqui */
+            itens[idx] = {...itens[idx], quantidade: itens[idx].quantidade + quantidade};
+            this._liistaItens.set(itens);
         } else {
             const novoProd: ItemPedido = {quantidade,produto};
             this._liistaItens.set([...itens, novoProd]);
             // this._liistaItens.set([...itens, {quantidade,produto}]);
         }
+    }
+
+    remover(id: number) {
+        this._liistaItens.set(this._liistaItens().filter(i => i.produto.id !== id));
+    }
+
+    atualizarQtd(id: number, quantidade: number){
+        if(quantidade <= 0){
+            this.remover(id);
+            return;
+        }
+        const itens = this._liistaItens();
+        const idx = itens.findIndex(it => it.produto.id === id);
+        if(idx > -1){
+            // const listaAtualizada = itens.slice(); // nao precisa do slice pq a versão tornou obsoleto
+            // listaAtualizada[idx] = {...listaAtualizada[idx], quantidade: quantidade};
+            itens[idx] = {...itens[idx], quantidade: quantidade};
+            this._liistaItens.set(itens);
+        }
+    }
+
+    limpar(){
+        this._liistaItens.set([]);
     }
 }

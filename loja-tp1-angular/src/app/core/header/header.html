@@ -1,5 +1,5 @@
 <header class="header">
-    <img src="images/logoifsp.png" alt="logo do ifsp">
+    <img src="images/logoifsp.png" alt="logo do ifsp" routerLink="/">
     <h1><!-- {{titulo}} --> {{ titulo() }}</h1>
     <nav>
         <!-- <a href="#" (click)="exibirMensagem('Teste')">Sobre</a> -->
@@ -9,6 +9,10 @@
         <a routerLink="/">Home</a>
         <a routerLink="/produtos">Produtos</a>
         <a routerLink="/sobre">Sobre</a>
+        <a class="card-wrapper" routerLink="/carrinho">
+            <span class="cart-icon">🛒</span>
+            <span class="badge">{{ qtdCarrinho() }}</span>
+        </a>
     </nav>
 </header>
 

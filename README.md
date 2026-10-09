@@ -86,5 +86,7 @@ A10 - Finalizamos a Aula 9 no dia da A10 e antes de começar a aula 10 foi apres
 
 A11 - foi apenas prototipar o projeto da loja que teremos q entregar
 
-A12 - foi relembrado diversas ações rapidamente como signal, input/output, e entao explicado rapidamente o effect q aparentemente é isso q vamos precisar, entao programamos o carrinho para salvar via adicionar no localstore onde via effect verificamos o estado/conteudo do item para atualizar
+A12 - foi relembrado diversas ações rapidamente como signal, input/output, e entao explicado rapidamente o effect q aparentemente é isso q vamos precisar, entao programamos o carrinho para salvar via adicionar no localstore onde via effect verificamos o estado/conteudo do item para atualizar, alias criamos o item-pedido.ts model separadamente sem comando. entao na parte 2, apenas puxamos do html atraves do botão add para usar essas funções de add, e entao baixamos o angular/material, baixamos tbm o css para usar o icone do carrinho (mas n funcionou nem pro prof), achei um bug e corrigi no badge e no localstorege, mas ainda tem algo curioso que deixa a localstore undefid desse carrinho 
 > ng g s features/carrinho/services/carrinho --flat=true --type=service
+> ng add @angular/material (y) (cor q vc desejar)
+
